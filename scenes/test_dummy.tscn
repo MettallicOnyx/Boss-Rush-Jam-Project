@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl8bb40p2xmqn"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_15c3l"]
+[ext_resource type="Texture2D" uid="uid://cbhsqie4hudnl" path="res://icon.svg" id="2_vjeyp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tjr8p"]
+radius = 70.0
+
+[node name="Test Dummy" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_15c3l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vjeyp")
+
+[node name="Damage Collision" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage Collision"]
+shape = SubResource("CircleShape2D_tjr8p")
+
+[connection signal="body_entered" from="Damage Collision" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Damage Collision" to="." method="_on_body_exited"]

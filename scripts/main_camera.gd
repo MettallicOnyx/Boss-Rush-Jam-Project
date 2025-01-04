@@ -1,6 +1,6 @@
 extends Camera2D
 
-@export var shake_strength: float = 100.0
+@export var shake_strength: float = 500.0
 @export var decay_speed: float = 50.0
 
 func _process(delta: float) -> void:

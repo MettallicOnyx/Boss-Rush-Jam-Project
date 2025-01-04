@@ -7,6 +7,8 @@ const BULLET = preload("res://scenes/bullet.tscn")
 @onready var muzzle: Marker2D = $Marker2D
 @onready var player: CharacterBody2D = $".."
 
+var damage: int = 5
+
 var recoil_strength: float = 300.0
 
 func _ready() -> void:
@@ -25,8 +27,10 @@ func _process(_delta: float) -> void:
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		player.velocity = Vector2.ZERO
+
 		var bullet_instance = BULLET.instantiate()
 		get_tree().root.add_child(bullet_instance)
+		bullet_instance.damage = damage
 		bullet_instance.global_position = muzzle.global_position
 		bullet_instance.rotation = rotation
 
@@ -41,5 +45,5 @@ func _input(_event: InputEvent) -> void:
 		shot_fired.emit()
 		
 		
-func _on_shot_fired():
+func _on_shot_fired() -> void:
 	pass
