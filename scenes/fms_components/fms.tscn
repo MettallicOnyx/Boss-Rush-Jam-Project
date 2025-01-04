@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://coe4fp7shfvuq"]
+
+[ext_resource type="Script" path="res://scripts/fms/fms.gd" id="1_l7oev"]
+
+[node name="FMS" type="Node"]
+script = ExtResource("1_l7oev")
