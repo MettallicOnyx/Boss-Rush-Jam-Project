@@ -1,11 +1,16 @@
 extends Node2D
 
+signal shot_fired
+
 const BULLET = preload("res://scenes/bullet.tscn")
 
 @onready var muzzle: Marker2D = $Marker2D
 @onready var player: CharacterBody2D = $".."
 
 var recoil_strength: float = 300.0
+
+func _ready() -> void:
+	shot_fired.connect(_on_shot_fired)
 
 func _process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
@@ -25,7 +30,6 @@ func _input(_event: InputEvent) -> void:
 		bullet_instance.global_position = muzzle.global_position
 		bullet_instance.rotation = rotation
 
-		
 		var recoil_angle := player.position.angle_to_point(get_global_mouse_position())
 		var recoil_dir := -Vector2.RIGHT.rotated(recoil_angle);
 		
@@ -33,5 +37,9 @@ func _input(_event: InputEvent) -> void:
 			player.velocity = -recoil_dir * recoil_strength;
 		else:
 			player.velocity = recoil_dir * recoil_strength;
+
+		shot_fired.emit()
 		
 		
+func _on_shot_fired():
+	pass
