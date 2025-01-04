@@ -28,4 +28,10 @@ func _input(_event: InputEvent) -> void:
 		
 		var recoil_angle := player.position.angle_to_point(get_global_mouse_position())
 		var recoil_dir := -Vector2.RIGHT.rotated(recoil_angle);
-		player.velocity = recoil_dir * recoil_strength;
+		
+		if player.velocity.x > 0 || player.velocity.y > 0: 
+			player.velocity = -recoil_dir * recoil_strength;
+		else:
+			player.velocity = recoil_dir * recoil_strength;
+		
+		
