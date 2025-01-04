@@ -167,6 +167,7 @@ radius = 5.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_player")]
 scale = Vector2(3.90926, 3.87938)
+collision_layer = 2
 script = ExtResource("1_lloie")
 animation_player = NodePath("AnimatedSprite2D")
 

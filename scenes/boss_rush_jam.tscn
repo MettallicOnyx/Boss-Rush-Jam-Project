@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://r5hakfqtvq4i"]
+[gd_scene load_steps=8 format=4 uid="uid://r5hakfqtvq4i"]
 
 [ext_resource type="Texture2D" uid="uid://dnxhldiydyfb6" path="res://assets/DungeonStarter.png" id="1_8f4c0"]
 [ext_resource type="PackedScene" uid="uid://dmneubwiq5xqt" path="res://scenes/player.tscn" id="1_o0p3x"]
 [ext_resource type="PackedScene" uid="uid://cgvsdd6olgjj4" path="res://scenes/gun.tscn" id="2_6aj4j"]
 [ext_resource type="Script" path="res://scripts/main_camera.gd" id="4_xtxtq"]
+[ext_resource type="PackedScene" uid="uid://bl8bb40p2xmqn" path="res://scenes/test_dummy.tscn" id="5_b4dyp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0e6v2"]
 texture = ExtResource("1_8f4c0")
@@ -113,5 +114,8 @@ position = Vector2(0.511621, 2.57774)
 [node name="Main Camera" type="Camera2D" parent="."]
 position = Vector2(576, 324)
 script = ExtResource("4_xtxtq")
+
+[node name="Test Enemy" parent="." instance=ExtResource("5_b4dyp")]
+position = Vector2(355, 352)
 
 [connection signal="shot_fired" from="Player/Gun" to="Main Camera" method="_on_gun_shot_fired"]
