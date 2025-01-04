@@ -6,7 +6,7 @@ class_name Player
 @export var accel = 10
 @export var animation_player : AnimatedSprite2D
 @export var health_component: HealthComponent
-@export var weapon_list : Array
+@export var weapon_list : Array[Node2D]
 
 var current_dir = "none"
 var weapon_index: int = 0
@@ -14,7 +14,6 @@ var weapon_index: int = 0
 @onready var gun: Node2D = $Gun
 
 func _ready() -> void:
-	weapon_list_init()
 	set_weapon()
 
 func _physics_process(_delta: float) -> void:
@@ -52,13 +51,8 @@ func _input(_event: InputEvent) -> void:
 
 	if Input.is_action_just_pressed("swap_weapon"): # press F
 		weapon_index += 1
-		
 		set_weapon()
 	
-
-func weapon_list_init():
-	for i in range(len(weapon_list)):
-		weapon_list[i] = get_node(weapon_list[i])
 
 func handle_animation(direction, is_flipped, animation_name):
 		current_dir = direction
