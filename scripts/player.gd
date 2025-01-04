@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
-@export var speed = 300
+@export var speed = 200
 @export var accel = 10
 @export var animation_player : AnimatedSprite2D
 var current_dir = "none"
 
 @onready var gun: Node2D = $Gun
-#Hello
+
 func _physics_process(_delta: float) -> void:
 	var direction_x = Input.get_axis("left", "right")
 	var direction_y = Input.get_axis("up", "down")
