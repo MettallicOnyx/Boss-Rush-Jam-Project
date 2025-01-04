@@ -15,7 +15,7 @@ extends Node2D
 		
 #		example function for animating hit
 #we should find a good shader animation and/or play the sprites hit animation instead
-func animateHit():
+func animate_hit() -> void:
 	$Sprite2D.self_modulate = Color(1,0,0)
 	await get_tree().create_timer(0.1).timeout
 	$Sprite2D.self_modulate = Color.WHITE

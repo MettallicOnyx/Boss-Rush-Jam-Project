@@ -2,7 +2,7 @@ extends Node2D
 
 signal shot_fired
 
-const BULLET = preload("res://scenes/bullet.tscn")
+const BULLET = preload("res://scenes/weapons/bullet.tscn")
 
 @onready var muzzle: Marker2D = $Marker2D
 @onready var player: CharacterBody2D = $".."

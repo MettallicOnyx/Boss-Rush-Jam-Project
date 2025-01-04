@@ -3,8 +3,8 @@ class_name FMS
 
 #The start state
 @export var initial_state: State
-var current_state
-var states = {}
+var current_state: State
+var states: Dictionary = {}
 
 func _ready() -> void:
 	current_state = initial_state

@@ -1,7 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://dmneubwiq5xqt"]
+[gd_scene load_steps=26 format=3 uid="uid://dmneubwiq5xqt"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_lloie"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_lloie"]
 [ext_resource type="Texture2D" uid="uid://di1783c0ov3ki" path="res://assets/Prototype_Character.png" id="2_ume8b"]
+[ext_resource type="Script" path="res://scripts/components/hitbox_component.gd" id="3_m87rb"]
+[ext_resource type="Script" path="res://scripts/components/health_component.gd" id="4_q8as4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_biebk"]
 atlas = ExtResource("2_ume8b")
@@ -165,18 +167,32 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_a66cc"]
 radius = 5.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_player")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_32div"]
+radius = 6.67083
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_player", "health_component")]
 scale = Vector2(3.90926, 3.87938)
 collision_layer = 2
 script = ExtResource("1_lloie")
 animation_player = NodePath("AnimatedSprite2D")
+health_component = NodePath("HealthComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7x6wh")
-animation = &"idle"
+animation = &"side_idle"
 autoplay = "idle"
-frame_progress = 0.238877
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_a66cc")
+
+[node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+script = ExtResource("3_m87rb")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_32div")
+
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("4_q8as4")
+MAX_HEALTH = 100
