@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgvsdd6olgjj4"]
+
+[ext_resource type="Texture2D" uid="uid://birdashiotb4p" path="res://assets/free-guns-pixel-art/Sniper-rifle-1-scoped.png" id="1_1ghbu"]
+[ext_resource type="Script" path="res://scripts/gun.gd" id="1_6t3aw"]
+
+[node name="Gun" type="Node2D"]
+rotation = -6.28319
+scale = Vector2(0.868694, 0.70789)
+script = ExtResource("1_6t3aw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(25, -4)
+texture = ExtResource("1_1ghbu")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(56.4065, -5.65029)

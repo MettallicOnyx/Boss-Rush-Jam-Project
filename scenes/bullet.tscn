@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://1axvg13pjl4v"]
+
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_5bbbp"]
+[ext_resource type="Texture2D" uid="uid://cjpv08vt8nv0v" path="res://assets/basic_projectile.png" id="2_blutt"]
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_5bbbp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(3.8147e-06, 0)
+scale = Vector2(2.87381, 1.04991)
+texture = ExtResource("2_blutt")
