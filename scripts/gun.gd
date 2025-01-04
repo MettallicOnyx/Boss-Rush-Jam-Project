@@ -27,7 +27,6 @@ func _process(_delta: float) -> void:
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		player.velocity = Vector2.ZERO
-
 		var bullet_instance = BULLET.instantiate()
 		get_tree().root.add_child(bullet_instance)
 		bullet_instance.damage = damage

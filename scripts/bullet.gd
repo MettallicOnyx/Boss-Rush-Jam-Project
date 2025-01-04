@@ -8,3 +8,6 @@ var damage: int #inherits of gun
 
 func _process(delta: float) -> void:
 	position += transform.x * SPEED * delta
+
+func destroySelf():
+	self.queue_free()
