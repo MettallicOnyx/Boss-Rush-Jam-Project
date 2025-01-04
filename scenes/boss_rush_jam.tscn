@@ -107,4 +107,5 @@ position = Vector2(562, 496)
 scale = Vector2(2.42678, 2.40823)
 
 [node name="Gun" parent="Player" instance=ExtResource("2_6aj4j")]
+visible = false
 position = Vector2(0.511621, 2.57774)
