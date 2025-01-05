@@ -6,6 +6,7 @@ const BULLET = preload("res://scenes/weapons/bullet.tscn")
 
 @onready var muzzle: Marker2D = $Marker2D
 @onready var player: CharacterBody2D = $".."
+@onready var gunshot: AudioStreamPlayer2D = $Gunshot
 
 var damage: int = 5
 
@@ -32,6 +33,7 @@ func _input(_event: InputEvent) -> void:
 		bullet_instance.damage = damage
 		bullet_instance.global_position = muzzle.global_position
 		bullet_instance.rotation = rotation
+		gunshot.play()
 
 		var recoil_angle := player.position.angle_to_point(get_global_mouse_position())
 		var recoil_dir := -Vector2.RIGHT.rotated(recoil_angle);
