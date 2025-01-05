@@ -1,3 +1,26 @@
-[gd_scene format=3 uid="uid://pd2x0370tjpy"]
+[gd_scene load_steps=5 format=3 uid="uid://pd2x0370tjpy"]
 
-[node name="Melee" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://b3eycr2b2bsjt" path="res://assets/Weapons/melee placeholder.png" id="1_h4cf3"]
+[ext_resource type="Script" path="res://scripts/weapons/melee.gd" id="1_jw3v4"]
+[ext_resource type="PackedScene" uid="uid://8hb22l51i2pm" path="res://scenes/components/attack_component.tscn" id="3_g5qi7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ote3o"]
+size = Vector2(10.75, 15)
+
+[node name="Melee" type="Node2D" node_paths=PackedStringArray("attack_component")]
+script = ExtResource("1_jw3v4")
+attack_component = NodePath("attack_component")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(11, 0)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_h4cf3")
+
+[node name="attack_component" parent="." instance=ExtResource("3_g5qi7")]
+collision_layer = 8
+collision_mask = 4
+attack = 40
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_component"]
+position = Vector2(20, 0)
+shape = SubResource("RectangleShape2D_ote3o")
