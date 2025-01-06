@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://dmneubwiq5xqt"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_lloie"]
-[ext_resource type="Texture2D" uid="uid://di1783c0ov3ki" path="res://assets/Prototype_Character.png" id="2_ume8b"]
+[ext_resource type="Texture2D" uid="uid://di1783c0ov3ki" path="res://assets/Player/Prototype_Character.png" id="2_ume8b"]
 [ext_resource type="Script" path="res://scripts/components/hitbox_component.gd" id="3_m87rb"]
 [ext_resource type="Script" path="res://scripts/components/health_component.gd" id="4_q8as4"]
 

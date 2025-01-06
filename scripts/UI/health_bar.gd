@@ -1,15 +1,15 @@
 extends TextureProgressBar
 
 @export var player: Player
-var playerHealth: HealthComponent
+var player_health: HealthComponent
 
 func _ready() -> void:
-	playerHealth = player.health_component
-	max_value = playerHealth.health; 
+	player_health = player.health_component
+	max_value = player_health.health; 
 
 func _process(_delta: float) -> void:
-	if playerHealth != null:
-		value = playerHealth.health
+	if player_health != null:
+		value = player_health.health
 		return
 	
 	get_tree().quit() # closes game (for now)
