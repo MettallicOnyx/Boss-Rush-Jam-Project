@@ -14,6 +14,7 @@ var is_dashing: bool = false
 var dash_target: Vector2
 var dash_start_position: Vector2
 
+
 var current_dir = "none"
 var weapon_index: int = 0
 var ammo_in_inventory = 50
@@ -68,7 +69,7 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("swap_weapon"): # press F
 		weapon_index += 1
 		set_weapon()
-	
+    
 	if Input.is_action_just_pressed("dash"):
 		dash_start_position = global_position
 		var mouse_position = get_global_mouse_position()
