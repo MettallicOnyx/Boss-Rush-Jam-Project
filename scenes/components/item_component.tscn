@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkp5o3xhh3t7l"]
+
+[ext_resource type="Script" path="res://scripts/components/item_component.gd" id="1_57gtn"]
+
+[node name="item_component" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_57gtn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
