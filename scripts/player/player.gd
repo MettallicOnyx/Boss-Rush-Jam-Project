@@ -20,7 +20,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	var direction_x = Input.get_axis("left", "right")
 	var direction_y = Input.get_axis("up", "down")
-	var direction = Vector2(direction_x, direction_y)
+	var direction = Vector2(direction_x, direction_y).normalized()
 	
 	if Input.is_action_pressed("left") && !direction_y:
 		handle_animation("left", true, "side_walk")
@@ -40,8 +40,10 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_released("down"):
 		animation_player.play("idle")
 	
-	velocity.x = move_toward(velocity.x, speed * direction.x, accel)
-	velocity.y = move_toward(velocity.y, speed * direction.y, accel)
+	#velocity.x = move_toward(velocity.x, speed * direction.x, accel)
+	#velocity.y = move_toward(velocity.y, speed * direction.y, accel)
+	
+	velocity = velocity.move_toward(direction * speed, accel)
 	
 	move_and_slide()
 
