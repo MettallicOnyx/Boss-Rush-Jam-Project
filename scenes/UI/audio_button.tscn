@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://65q6t3uby6xc"]
+
+[ext_resource type="Script" path="res://scripts/UI/settings/audio_button.gd" id="1_57us4"]
+
+[node name="Audio Button" type="Button"]
+offset_left = 92.0
+offset_top = 44.0
+offset_right = 302.0
+offset_bottom = 109.0
+text = "Audio"
+script = ExtResource("1_57us4")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

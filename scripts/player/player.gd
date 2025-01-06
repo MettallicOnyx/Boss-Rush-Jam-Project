@@ -8,6 +8,7 @@ class_name Player
 @export var health_component: HealthComponent
 @export var weapon_list : Array[Node2D]
 
+
 var current_dir = "none"
 var weapon_index: int = 0
 var ammo_in_inventory = 50
@@ -55,7 +56,6 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("swap_weapon"): # press F
 		weapon_index += 1
 		set_weapon()
-	
 
 func handle_animation(direction, is_flipped, animation_name):
 		current_dir = direction

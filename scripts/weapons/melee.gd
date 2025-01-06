@@ -43,7 +43,7 @@ func attack(return_point: Vector2) -> void:
 	look_at(return_point)
 	can_hit = false
 	
-func spin_move(delta: float):
+func spin_move(delta: float) -> void:
 	rotation = lerp_angle(weapon_rotation,weapon_rotation + 360, elapsed);
 
 	elapsed += delta * spin_speed

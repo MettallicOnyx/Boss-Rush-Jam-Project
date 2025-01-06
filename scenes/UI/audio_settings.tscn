@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbdpyarwb75dw"]
+
+[ext_resource type="Script" path="res://scripts/UI/settings/audio_settings.gd" id="1_jtsfj"]
+
+[node name="Audio Settings" type="Control" node_paths=PackedStringArray("master_volume_slider")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 97.0
+offset_top = 56.0
+offset_right = 137.0
+offset_bottom = 96.0
+script = ExtResource("1_jtsfj")
+master_volume_slider = NodePath("Volume Slider")
+
+[node name="Volume Slider" type="HSlider" parent="."]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 16.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Volume Slider"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = -28.0
+offset_right = 177.0
+offset_bottom = -2.0
+text = "Master Volume: 100"
