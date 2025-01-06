@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://b30ogcnmvfv77"]
+
+[ext_resource type="Script" path="res://scripts/items/ammo.gd" id="1_boy6g"]
+[ext_resource type="Texture2D" uid="uid://bhdhertj3nhqj" path="res://assets/Weapons/free-guns-pixel-art/Amo1.png" id="2_bsq36"]
+[ext_resource type="PackedScene" uid="uid://dkp5o3xhh3t7l" path="res://scenes/components/item_component.tscn" id="3_0a3fk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_73l8d"]
+radius = 12.0416
+
+[node name="AmmoPickup" type="Node2D"]
+script = ExtResource("1_boy6g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bsq36")
+
+[node name="item_component" parent="." instance=ExtResource("3_0a3fk")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="item_component"]
+shape = SubResource("CircleShape2D_73l8d")

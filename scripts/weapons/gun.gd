@@ -16,6 +16,7 @@ func _ready() -> void:
 	shot_fired.connect(_on_shot_fired)
 	ammo_in_clip = clip_size
 	current_ammo = get_parent().ammo_in_inventory
+	
 
 func _process(_delta: float) -> void:
 	look_at(get_global_mouse_position())

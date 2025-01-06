@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://r5hakfqtvq4i"]
+[gd_scene load_steps=12 format=4 uid="uid://r5hakfqtvq4i"]
 
 [ext_resource type="PackedScene" uid="uid://dmneubwiq5xqt" path="res://scenes/player/player.tscn" id="1_o0p3x"]
 [ext_resource type="PackedScene" uid="uid://b4v3g0v1f62js" path="res://scenes/UI/health_bar.tscn" id="1_sh5up"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/UI/main_camera.gd" id="4_xtxtq"]
 [ext_resource type="PackedScene" uid="uid://bl8bb40p2xmqn" path="res://scenes/enemies/test_dummy.tscn" id="5_b4dyp"]
 [ext_resource type="PackedScene" uid="uid://pd2x0370tjpy" path="res://scenes/weapons/melee.tscn" id="5_w01p5"]
+[ext_resource type="PackedScene" uid="uid://b30ogcnmvfv77" path="res://scenes/items/ammo_pickup.tscn" id="9_imqat"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tgvlf"]
 texture = ExtResource("2_jxsl0")
@@ -74,6 +75,10 @@ sources/1 = SubResource("TileSetAtlasSource_tgvlf")
 player = NodePath("../../Player")
 
 [node name="Ammo_label" parent="CanvasLayer" node_paths=PackedStringArray("gun") instance=ExtResource("2_4gufw")]
+offset_left = 14.0
+offset_top = 52.0
+offset_right = 66.0
+offset_bottom = 75.0
 gun = NodePath("../../Player/Gun")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -99,5 +104,10 @@ script = ExtResource("4_xtxtq")
 
 [node name="Test Enemy" parent="." instance=ExtResource("5_b4dyp")]
 position = Vector2(355, 352)
+
+[node name="Pickups" type="Node2D" parent="."]
+
+[node name="AmmoPickup" parent="Pickups" instance=ExtResource("9_imqat")]
+position = Vector2(248, 154)
 
 [connection signal="shot_fired" from="Player/Gun" to="Main Camera" method="_on_gun_shot_fired"]
