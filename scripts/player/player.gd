@@ -10,6 +10,7 @@ class_name Player
 
 var current_dir = "none"
 var weapon_index: int = 0
+var ammo_in_inventory = 50
 
 @onready var gun: Node2D = $Gun
 

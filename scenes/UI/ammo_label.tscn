@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://lim4lwwce5bt"]
+
+[ext_resource type="Script" path="res://scripts/UI/ammo_label.gd" id="1_2mldk"]
+
+[node name="Ammo_label" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "12/100"
+script = ExtResource("1_2mldk")
