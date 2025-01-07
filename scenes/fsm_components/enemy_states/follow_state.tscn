@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dae3jj3cdepow"]
+
+[ext_resource type="Script" path="res://scripts/fsm/enemy_states/follow_state.gd" id="1_j6mdo"]
+
+[node name="follow_state" type="Node"]
+script = ExtResource("1_j6mdo")
