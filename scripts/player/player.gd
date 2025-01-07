@@ -47,9 +47,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("down"):
 		animation_player.play("idle")
 	
-	#velocity.x = move_toward(velocity.x, speed * direction.x, accel)
-	#velocity.y = move_toward(velocity.y, speed * direction.y, accel)
-	
 	if is_dashing:
 		global_position = global_position.move_toward(dash_target, dash_speed * delta)
 

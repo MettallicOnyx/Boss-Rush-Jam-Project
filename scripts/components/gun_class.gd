@@ -20,10 +20,7 @@ func do_recoil(recoil_strength):
 	var recoil_angle := player.position.angle_to_point(get_global_mouse_position())
 	var recoil_dir := -Vector2.RIGHT.rotated(recoil_angle);
 	
-	if player.velocity.x > 0 || player.velocity.y > 0: 
-		player.velocity = -recoil_dir * recoil_strength;
-	else:
-		player.velocity = recoil_dir * recoil_strength;
+	player.velocity = recoil_dir * recoil_strength;
 
 func reload_gun():
 	if ammo_in_clip < clip_size:
