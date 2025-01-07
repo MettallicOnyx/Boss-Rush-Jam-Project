@@ -14,6 +14,7 @@ func _ready() -> void:
 #			we populate the dictionary with child states
 			states[child.name] = child
 			child.transitioned.connect(self.on_state_transition)
+	current_state.onEnter()
 
 
 func _process(delta: float) -> void:
@@ -36,4 +37,3 @@ func on_state_transition(state, new_state_to_set):
 #	we set the new state and call its enter function
 	current_state = new_state
 	current_state.onEnter()
-
