@@ -27,7 +27,7 @@ func _ready() -> void:
 	_initial_calculated_base_rotation = fire_point_parent.rotation_degrees
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	#_rotate_fire_point_parent(delta)
 	

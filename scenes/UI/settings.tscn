@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvi7vjtya3my1"]
+[gd_scene load_steps=6 format=3 uid="uid://dvi7vjtya3my1"]
 
 [ext_resource type="Script" path="res://scripts/UI/settings/settings.gd" id="1_5oy0f"]
 [ext_resource type="Script" path="res://scripts/UI/settings/exit.gd" id="2_gr11b"]
 [ext_resource type="PackedScene" uid="uid://65q6t3uby6xc" path="res://scenes/UI/audio_button.tscn" id="3_absac"]
 [ext_resource type="PackedScene" uid="uid://bbdpyarwb75dw" path="res://scenes/UI/audio_settings.tscn" id="4_ypeqg"]
+[ext_resource type="Script" path="res://scripts/UI/settings/close_game.gd" id="5_3t041"]
 
-[node name="Settings" type="Panel"]
+[node name="Settings" type="Panel" node_paths=PackedStringArray("audio_settings")]
 process_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -19,8 +20,9 @@ offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5oy0f")
+audio_settings = NodePath("Audio Settings")
 
-[node name="Exit" type="Button" parent="."]
+[node name="Exit Menu" type="Button" parent="."]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 10.0
@@ -28,14 +30,24 @@ offset_right = 37.0
 offset_bottom = 40.0
 script = ExtResource("2_gr11b")
 
-[node name="Audio Button" parent="." node_paths=PackedStringArray("audio_settings") instance=ExtResource("3_absac")]
+[node name="Audio Button" parent="." instance=ExtResource("3_absac")]
 layout_mode = 0
 offset_left = 86.0
 offset_top = 58.0
 offset_right = 296.0
 offset_bottom = 123.0
-audio_settings = NodePath("../Audio Settings")
 
 [node name="Audio Settings" parent="." instance=ExtResource("4_ypeqg")]
+layout_mode = 1
 
-[connection signal="pressed" from="Exit" to="Exit" method="_on_pressed"]
+[node name="Close Game" type="Button" parent="."]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 315.0
+offset_right = 296.0
+offset_bottom = 380.0
+text = "Quit"
+script = ExtResource("5_3t041")
+
+[connection signal="pressed" from="Exit Menu" to="Exit Menu" method="_on_pressed"]
+[connection signal="pressed" from="Close Game" to="Close Game" method="_on_pressed"]

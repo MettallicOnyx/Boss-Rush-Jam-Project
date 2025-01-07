@@ -115,10 +115,8 @@ projectile_spawner = NodePath("ProjectileSpawner")
 [node name="ProjectileSpawner" type="Node2D" parent="Test Enemy"]
 script = ExtResource("9_tqdtp")
 projectile_prefab = ExtResource("13_vvxe5")
-initial_base_rotation = null
 base_rotation_step = 22.5
 base_radius = 50
-projectile_spread = null
 projectiles_per_shot = 8
 shot_count = 2
 sequence_count = -1

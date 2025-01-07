@@ -2,25 +2,52 @@
 
 [ext_resource type="Script" path="res://scripts/UI/settings/audio_settings.gd" id="1_jtsfj"]
 
-[node name="Audio Settings" type="Control" node_paths=PackedStringArray("master_volume_slider")]
+[node name="Audio Settings" type="Control" node_paths=PackedStringArray("music_slider", "sfx_slider")]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 97.0
-offset_top = 56.0
-offset_right = 137.0
-offset_bottom = 96.0
+offset_right = 40.0
+offset_bottom = 40.0
 script = ExtResource("1_jtsfj")
-master_volume_slider = NodePath("Volume Slider")
+music_slider = NodePath("Music Volume Slider")
+sfx_slider = NodePath("SFX Volume Slider")
 
-[node name="Volume Slider" type="HSlider" parent="."]
+[node name="Music Volume Slider" type="HSlider" parent="."]
 layout_mode = 0
-offset_right = 192.0
-offset_bottom = 16.0
+offset_left = 96.0
+offset_top = 174.0
+offset_right = 288.0
+offset_bottom = 190.0
+value = 100.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Volume Slider"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Music Volume Slider"]
 layout_mode = 0
-offset_left = 19.0
-offset_top = -28.0
-offset_right = 177.0
-offset_bottom = -2.0
-text = "Master Volume: 100"
+offset_left = 51.0
+offset_top = -30.0
+offset_right = 138.0
+offset_bottom = -4.0
+text = "Music: 100"
+
+[node name="SFX Volume Slider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 234.0
+offset_right = 288.0
+offset_bottom = 250.0
+value = 100.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SFX Volume Slider"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = -32.0
+offset_right = 171.0
+offset_bottom = -6.0
+text = "Sound Effects: 100"
+
+[node name="Return" type="Button" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 10.0
+offset_right = 37.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
