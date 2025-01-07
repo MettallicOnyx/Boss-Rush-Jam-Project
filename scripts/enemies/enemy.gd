@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var projectile_spawner: ProjectileSpawner
 #func _on_body_entered(body: Node2D) -> void:
 	#if (body is Bullet && !damage_immunity):
 		#hit(body)
@@ -12,6 +13,10 @@ extends Node2D
 #
 	#if (health <= 0):
 		#queue_free()
+		
+func _ready() -> void:
+	#projectile_spawner.activate_spawner()
+	pass
 		
 #		example function for animating hit
 #we should find a good shader animation and/or play the sprites hit animation instead

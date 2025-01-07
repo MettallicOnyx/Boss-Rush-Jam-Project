@@ -9,6 +9,7 @@ class_name Player
 @export var weapon_list : Array[Node2D]
 
 
+
 var current_dir = "none"
 var weapon_index: int = 0
 var ammo_in_inventory = 50
@@ -33,9 +34,9 @@ func _physics_process(_delta: float) -> void:
 		handle_animation("down", true, "walk")
 	
 	if Input.is_action_just_released("left"):
-		animation_player.play("side_idle")
+		handle_animation("left", false, "side_idle")
 	if Input.is_action_just_released("right"):
-		animation_player.play("side_idle")
+		handle_animation("left", true, "side_idle")
 	if Input.is_action_just_released("up"):
 		animation_player.play("back_idle")
 	if Input.is_action_just_released("down"):

@@ -305,10 +305,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a66cc"]
-radius = 5.0
+radius = 6.74525
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_32div"]
-radius = 6.67083
+radius = 9.72051
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animation_player", "health_component")]
 scale = Vector2(3.90926, 3.87938)
@@ -324,7 +324,7 @@ autoplay = "idle"
 frame_progress = 0.779822
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
+position = Vector2(0.511606, 3.09328)
 shape = SubResource("CircleShape2D_a66cc")
 
 [node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
@@ -332,6 +332,7 @@ script = ExtResource("3_m87rb")
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0.511608, 2.83551)
 shape = SubResource("CircleShape2D_32div")
 
 [node name="HealthComponent" type="Node2D" parent="."]
