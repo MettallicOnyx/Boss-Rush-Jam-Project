@@ -15,7 +15,8 @@ extends Node2D
 		#queue_free()
 		
 func _ready() -> void:
-	projectile_spawner.activate_spawner()
+	#projectile_spawner.activate_spawner()
+	pass
 		
 #		example function for animating hit
 #we should find a good shader animation and/or play the sprites hit animation instead

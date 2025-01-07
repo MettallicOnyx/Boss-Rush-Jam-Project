@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://r5hakfqtvq4i"]
+[gd_scene load_steps=17 format=4 uid="uid://r5hakfqtvq4i"]
 
 [ext_resource type="PackedScene" uid="uid://dmneubwiq5xqt" path="res://scenes/player/player.tscn" id="1_o0p3x"]
 [ext_resource type="PackedScene" uid="uid://b4v3g0v1f62js" path="res://scenes/UI/health_bar.tscn" id="1_sh5up"]
@@ -11,8 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://pd2x0370tjpy" path="res://scenes/weapons/melee.tscn" id="5_w01p5"]
 [ext_resource type="PackedScene" uid="uid://b30ogcnmvfv77" path="res://scenes/items/ammo_pickup.tscn" id="9_imqat"]
 [ext_resource type="Script" path="res://scripts/components/projectile_spawner.gd" id="9_tqdtp"]
+[ext_resource type="PackedScene" uid="uid://chtn4jjmnt7fh" path="res://scenes/enemies/projectiles/projectile.tscn" id="10_kqqdp"]
 [ext_resource type="Script" path="res://scenes/components/projectile_spawner_random.gd" id="11_pbwjy"]
-[ext_resource type="PackedScene" uid="uid://chtn4jjmnt7fh" path="res://scenes/enemies/projectiles/projectile.tscn" id="13_vvxe5"]
+[ext_resource type="PackedScene" uid="uid://chtn4jjmnt7fh" path="res://scenes/components/projectile.tscn" id="13_vvxe5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tgvlf"]
 texture = ExtResource("2_jxsl0")
@@ -114,11 +115,9 @@ projectile_spawner = NodePath("ProjectileSpawner")
 
 [node name="ProjectileSpawner" type="Node2D" parent="Test Enemy"]
 script = ExtResource("9_tqdtp")
-projectile_prefab = ExtResource("13_vvxe5")
-initial_base_rotation = null
+projectile_prefab = ExtResource("10_kqqdp")
 base_rotation_step = 22.5
 base_radius = 50
-projectile_spread = null
 projectiles_per_shot = 8
 shot_count = 2
 sequence_count = -1
@@ -135,7 +134,7 @@ one_shot = true
 [node name="ProjectileSpawner2" type="Node2D" parent="Test Enemy"]
 script = ExtResource("11_pbwjy")
 projectile_prefab = ExtResource("13_vvxe5")
-base_rotation_step = 0.0
+base_rotation_step = 22.5
 base_radius = 50
 projectiles_per_shot = 8
 shot_count = 2

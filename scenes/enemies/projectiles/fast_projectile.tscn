@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8nim3apfvj03"]
+
+[ext_resource type="Script" path="res://scripts/components/projectile.gd" id="1_saoa8"]
+[ext_resource type="Texture2D" uid="uid://cbhsqie4hudnl" path="res://icon.svg" id="2_ct4cv"]
+
+[node name="Projectile" type="Node2D"]
+script = ExtResource("1_saoa8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_ct4cv")
+
+[node name="DestroyTimer" type="Timer" parent="."]
+wait_time = 8.0
