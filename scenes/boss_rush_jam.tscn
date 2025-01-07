@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://r5hakfqtvq4i"]
+[gd_scene load_steps=18 format=4 uid="uid://r5hakfqtvq4i"]
 
 [ext_resource type="PackedScene" uid="uid://dmneubwiq5xqt" path="res://scenes/player/player.tscn" id="1_o0p3x"]
 [ext_resource type="PackedScene" uid="uid://b4v3g0v1f62js" path="res://scenes/UI/health_bar.tscn" id="1_sh5up"]
@@ -12,7 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://b30ogcnmvfv77" path="res://scenes/items/ammo_pickup.tscn" id="9_imqat"]
 [ext_resource type="Script" path="res://scripts/components/projectile_spawner.gd" id="9_tqdtp"]
 [ext_resource type="Script" path="res://scenes/components/projectile_spawner_random.gd" id="11_pbwjy"]
+[ext_resource type="PackedScene" uid="uid://coe4fp7shfvuq" path="res://scenes/fsm_components/fsm.tscn" id="13_0vndp"]
 [ext_resource type="PackedScene" uid="uid://chtn4jjmnt7fh" path="res://scenes/enemies/projectiles/projectile.tscn" id="13_vvxe5"]
+[ext_resource type="PackedScene" uid="uid://dae3jj3cdepow" path="res://scenes/fsm_components/enemy_states/follow_state.tscn" id="14_6waw6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tgvlf"]
 texture = ExtResource("2_jxsl0")
@@ -94,6 +96,7 @@ tile_map_data = PackedByteArray("AAALABQAAQABAAMAAAALABMAAQABAAMAAAALABIAAQABAAM
 tile_set = SubResource("TileSet_yhawu")
 
 [node name="Player" parent="." node_paths=PackedStringArray("weapon_list") instance=ExtResource("1_o0p3x")]
+unique_name_in_owner = true
 position = Vector2(562, 496)
 scale = Vector2(2.42678, 2.40823)
 weapon_list = [NodePath("Gun"), NodePath("Melee")]
@@ -148,6 +151,12 @@ wait_time = 0.3
 wait_time = 0.5
 one_shot = true
 autostart = true
+
+[node name="FMS" parent="Test Enemy" node_paths=PackedStringArray("initial_state") instance=ExtResource("13_0vndp")]
+initial_state = NodePath("follow_state")
+
+[node name="follow_state" parent="Test Enemy/FMS" instance=ExtResource("14_6waw6")]
+speed = 100.0
 
 [node name="Pickups" type="Node2D" parent="."]
 
