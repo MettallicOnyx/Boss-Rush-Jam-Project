@@ -1,18 +1,15 @@
-[gd_scene load_steps=16 format=4 uid="uid://r5hakfqtvq4i"]
+[gd_scene load_steps=13 format=4 uid="uid://r5hakfqtvq4i"]
 
 [ext_resource type="PackedScene" uid="uid://dmneubwiq5xqt" path="res://scenes/player/player.tscn" id="1_o0p3x"]
 [ext_resource type="PackedScene" uid="uid://b4v3g0v1f62js" path="res://scenes/UI/health_bar.tscn" id="1_sh5up"]
 [ext_resource type="PackedScene" uid="uid://lim4lwwce5bt" path="res://scenes/UI/ammo_label.tscn" id="2_4gufw"]
 [ext_resource type="PackedScene" uid="uid://bgqvneeqe3raq" path="res://scenes/weapons/gun.tscn" id="2_6aj4j"]
 [ext_resource type="Texture2D" uid="uid://cayll74qwdeg6" path="res://assets/Tilesets/Tileset1.png" id="2_jxsl0"]
-[ext_resource type="PackedScene" uid="uid://dvi7vjtya3my1" path="res://scenes/UI/settings.tscn" id="3_qxcin"]
+[ext_resource type="PackedScene" path="res://scenes/UI/settings.tscn" id="3_qxcin"]
 [ext_resource type="Script" path="res://scripts/UI/main_camera.gd" id="4_xtxtq"]
 [ext_resource type="PackedScene" uid="uid://bjjn8eh74vu41" path="res://scenes/enemies/test_dummy.tscn" id="5_b4dyp"]
 [ext_resource type="PackedScene" uid="uid://pd2x0370tjpy" path="res://scenes/weapons/melee.tscn" id="5_w01p5"]
 [ext_resource type="PackedScene" uid="uid://b30ogcnmvfv77" path="res://scenes/items/ammo_pickup.tscn" id="9_imqat"]
-[ext_resource type="Script" path="res://scripts/components/projectile_spawner.gd" id="9_tqdtp"]
-[ext_resource type="Script" path="res://scenes/components/projectile_spawner_random.gd" id="11_pbwjy"]
-[ext_resource type="PackedScene" uid="uid://chtn4jjmnt7fh" path="res://scenes/enemies/projectiles/projectile.tscn" id="13_vvxe5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tgvlf"]
 texture = ExtResource("2_jxsl0")
@@ -110,46 +107,7 @@ script = ExtResource("4_xtxtq")
 
 [node name="Test Enemy" parent="." node_paths=PackedStringArray("projectile_spawner") instance=ExtResource("5_b4dyp")]
 position = Vector2(355, 352)
-projectile_spawner = NodePath("ProjectileSpawner")
-
-[node name="ProjectileSpawner" type="Node2D" parent="Test Enemy"]
-script = ExtResource("9_tqdtp")
-projectile_prefab = ExtResource("13_vvxe5")
-initial_base_rotation = null
-base_rotation_step = 22.5
-base_radius = 50
-projectile_spread = null
-projectiles_per_shot = 8
-shot_count = 2
-sequence_count = -1
-
-[node name="ShootTimer" type="Timer" parent="Test Enemy/ProjectileSpawner"]
-wait_time = 0.3
-
-[node name="FirePointParent" type="Node2D" parent="Test Enemy/ProjectileSpawner"]
-
-[node name="SequenceTimer" type="Timer" parent="Test Enemy/ProjectileSpawner"]
-wait_time = 0.5
-one_shot = true
-
-[node name="ProjectileSpawner2" type="Node2D" parent="Test Enemy"]
-script = ExtResource("11_pbwjy")
-projectile_prefab = ExtResource("13_vvxe5")
-base_rotation_step = 0.0
-base_radius = 50
-projectiles_per_shot = 8
-shot_count = 2
-sequence_count = -1
-
-[node name="ShootTimer" type="Timer" parent="Test Enemy/ProjectileSpawner2"]
-wait_time = 0.3
-
-[node name="FirePointParent" type="Node2D" parent="Test Enemy/ProjectileSpawner2"]
-
-[node name="SequenceTimer" type="Timer" parent="Test Enemy/ProjectileSpawner2"]
-wait_time = 0.5
-one_shot = true
-autostart = true
+projectile_spawner = NodePath("")
 
 [node name="Pickups" type="Node2D" parent="."]
 
@@ -157,7 +115,3 @@ autostart = true
 position = Vector2(248, 154)
 
 [connection signal="shot_fired" from="Player/Gun" to="Main Camera" method="_on_gun_shot_fired"]
-[connection signal="timeout" from="Test Enemy/ProjectileSpawner/ShootTimer" to="Test Enemy/ProjectileSpawner" method="_on_shoot_timer_timeout"]
-[connection signal="timeout" from="Test Enemy/ProjectileSpawner/SequenceTimer" to="Test Enemy/ProjectileSpawner" method="_on_sequence_timer_timeout"]
-[connection signal="timeout" from="Test Enemy/ProjectileSpawner2/ShootTimer" to="Test Enemy/ProjectileSpawner2" method="_on_shoot_timer_timeout"]
-[connection signal="timeout" from="Test Enemy/ProjectileSpawner2/SequenceTimer" to="Test Enemy/ProjectileSpawner2" method="_on_sequence_timer_timeout"]
