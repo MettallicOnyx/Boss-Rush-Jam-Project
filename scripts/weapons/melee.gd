@@ -3,7 +3,8 @@ extends Node2D
 @export var attack_component: AttackComponent 
 @export var damage_time: float = 0.3
 
-@export var spin_speed = 4 
+@export var spin_speed: float = 4.25
+@export var hit_delay: float = 0.20
 
 var player: Player
 
@@ -36,6 +37,7 @@ func _input(_event: InputEvent) -> void:
 		is_spinning = true;
 
 func attack(return_point: Vector2) -> void:
+	await get_tree().create_timer(hit_delay).timeout
 	rotation -= PI
 	attack_component.process_mode = Node.PROCESS_MODE_INHERIT
 	await get_tree().create_timer(damage_time).timeout

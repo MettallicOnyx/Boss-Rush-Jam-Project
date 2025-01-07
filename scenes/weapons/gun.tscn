@@ -19,4 +19,4 @@ position = Vector2(56.4065, -5.65029)
 
 [node name="Gunshot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_5svgy")
-volume_db = -2.0
+volume_db = -20.0
