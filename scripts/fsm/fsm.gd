@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	if current_state:
 		current_state.onUpdate(delta)
 
-func on_state_transition(state, new_state_to_set):
+func on_state_transition(new_state_to_set):
 #	new_state_to_set is a string (name of new state), current_state is an object
 #if we're trying to enter the state we're already in, just return
 	if new_state_to_set == current_state.name:
@@ -35,5 +35,6 @@ func on_state_transition(state, new_state_to_set):
 		return
 	
 #	we set the new state and call its enter function
+	current_state.onExit()
 	current_state = new_state
 	current_state.onEnter()

@@ -3,8 +3,9 @@ class_name State
 
 #We're making an array in case that we're choosing a random attack out of 3 possible ones
 @export var next_state: Array[State]
+@export var animationPlayer: AnimatedSprite2D
 #this signal will trigger whenever the condition for changing the state is true
-signal transitioned(state, new_state_to_set)
+signal transitioned(new_state_to_set)
 
 #this gets called whenever the state is entered
 func onEnter():

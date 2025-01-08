@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://r5hakfqtvq4i"]
+[gd_scene load_steps=18 format=4 uid="uid://r5hakfqtvq4i"]
 
 [ext_resource type="PackedScene" uid="uid://dmneubwiq5xqt" path="res://scenes/player/player.tscn" id="1_o0p3x"]
 [ext_resource type="PackedScene" uid="uid://b4v3g0v1f62js" path="res://scenes/UI/health_bar.tscn" id="1_sh5up"]
@@ -13,9 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://b30ogcnmvfv77" path="res://scenes/items/ammo_pickup.tscn" id="9_imqat"]
 [ext_resource type="Script" path="res://scripts/components/projectile_spawner.gd" id="9_tqdtp"]
 [ext_resource type="Script" path="res://scenes/components/projectile_spawner_random.gd" id="11_pbwjy"]
-[ext_resource type="PackedScene" uid="uid://coe4fp7shfvuq" path="res://scenes/fsm_components/fsm.tscn" id="13_0vndp"]
 [ext_resource type="PackedScene" uid="uid://chtn4jjmnt7fh" path="res://scenes/enemies/projectiles/projectile.tscn" id="13_vvxe5"]
-[ext_resource type="PackedScene" uid="uid://dae3jj3cdepow" path="res://scenes/fsm_components/enemy_states/follow_state.tscn" id="14_6waw6"]
+[ext_resource type="PackedScene" uid="uid://c17auasyxa2vn" path="res://scenes/enemies/bosses/mantis/mantis.tscn" id="17_vvk1y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tgvlf"]
 texture = ExtResource("2_jxsl0")
@@ -156,16 +155,13 @@ wait_time = 0.5
 one_shot = true
 autostart = true
 
-[node name="FMS" parent="Test Enemy" node_paths=PackedStringArray("initial_state") instance=ExtResource("13_0vndp")]
-initial_state = NodePath("follow_state")
-
-[node name="follow_state" parent="Test Enemy/FMS" instance=ExtResource("14_6waw6")]
-speed = 100.0
-
 [node name="Pickups" type="Node2D" parent="."]
 
 [node name="AmmoPickup" parent="Pickups" instance=ExtResource("9_imqat")]
 position = Vector2(248, 154)
+
+[node name="Mantis" parent="." instance=ExtResource("17_vvk1y")]
+position = Vector2(567, 147)
 
 [connection signal="shot_fired" from="Player/Gun" to="Main Camera" method="_on_gun_shot_fired"]
 [connection signal="timeout" from="Test Enemy/ProjectileSpawner/ShootTimer" to="Test Enemy/ProjectileSpawner" method="_on_shoot_timer_timeout"]
