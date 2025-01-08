@@ -9,11 +9,13 @@ class_name Player
 @export var weapon_list : Array[Node2D]
 @export var dash_distance: float = 200.0  # Maximum distance for the dash
 @export var dash_speed: float = 500.0  # Speed of the dash
+@export var dash_stamina_cost: int = 20
 
 var is_dashing: bool = false
 var dash_target: Vector2
 var dash_start_position: Vector2
 
+var stamina: int = 100
 
 var current_dir = "none"
 var weapon_index: int = 0
@@ -67,11 +69,12 @@ func _input(_event: InputEvent) -> void:
 		weapon_index += 1
 		set_weapon()
 	
-	if Input.is_action_just_pressed("dash"):
+	if Input.is_action_just_pressed("dash") && stamina > 0:
 		dash_start_position = global_position
 		var mouse_position = get_global_mouse_position()
 		var direction = (mouse_position - global_position).normalized()
 		dash_target = global_position + direction * dash_distance
+		stamina -= dash_stamina_cost
 		is_dashing = true
 
 func handle_animation(direction, is_flipped, animation_name):

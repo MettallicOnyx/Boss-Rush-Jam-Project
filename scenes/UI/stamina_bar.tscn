@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8a50jhlgwtxg"]
+
+[ext_resource type="Texture2D" uid="uid://wrgplqc2xl6w" path="res://assets/UI/healthbar_placeholder.png" id="1_bh8r5"]
+[ext_resource type="Script" path="res://scripts/UI/stamina_bar.gd" id="2_hde5w"]
+
+[node name="StaminaBar" type="TextureProgressBar"]
+offset_right = 256.0
+offset_bottom = 64.0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 1
+stretch_margin_top = 1
+stretch_margin_right = 1
+stretch_margin_bottom = 1
+texture_progress = ExtResource("1_bh8r5")
+tint_progress = Color(27.624, 100, 0, 1)
+script = ExtResource("2_hde5w")

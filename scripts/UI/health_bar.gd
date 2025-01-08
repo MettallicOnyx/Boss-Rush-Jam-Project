@@ -1,6 +1,6 @@
 extends TextureProgressBar
 
-@export var player: Player
+@onready var player: Player = %Player
 var player_health: HealthComponent
 
 func _ready() -> void:
