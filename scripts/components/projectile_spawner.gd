@@ -37,7 +37,6 @@ func activate_spawner():
 	
 func _create_fire_points() -> void:
 	var step = projectile_spread * PI/180 / projectiles_per_shot
-	print(step)
 	
 	for i in range(projectiles_per_shot):
 		var spawn_point = Node2D.new()
@@ -59,7 +58,6 @@ func _rotate_fire_point_parent(step: float) -> void:
 	fire_point_parent.rotation_degrees = fmod(new_rotation, 360)
 
 func _on_shoot_timer_timeout() -> void:
-	print("firing shot")
 	_fire_projectiles()
 	_rotate_fire_point_parent(base_rotation_step)
 	_shots_fired += 1;
@@ -71,10 +69,10 @@ func _on_sequence_timer_timeout() -> void:
 	_reset_sequence()
 
 func _placeholder_callable():
-	print("Sequence complete")
+	pass
 	
 func _placeholder_callable_all():
-	print("Sequence complete - all")
+	pass
 	
 func _end_sequence() -> void:
 	_on_complete_sequence.call()
@@ -88,6 +86,5 @@ func _end_sequence() -> void:
 func _reset_sequence() -> void:
 	_shots_fired = 0;
 	fire_point_parent.rotation_degrees = _initial_calculated_base_rotation
-	print("Resetting sequence")
 	shoot_timer.start()
 	

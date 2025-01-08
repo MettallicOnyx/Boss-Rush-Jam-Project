@@ -7,7 +7,6 @@ func _create_fire_points() -> void:
 	for i in range(projectiles_per_shot):
 		var spawn_point = Node2D.new()
 		var dir = rng.randf_range(0, projectile_spread * PI/180)
-		print(dir)
 		var pos = Vector2(base_radius, 0).rotated(dir)
 		spawn_point.position = pos
 		spawn_point.rotation = pos.angle()
