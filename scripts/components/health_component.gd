@@ -12,5 +12,5 @@ func _enter_tree() -> void:
 
 func damage(attack):
 	health -= attack
-	parent.animate_hit()
+	if parent.has_method("animate_hit"): parent.animate_hit()
 	if health <= 0: get_parent().queue_free()

@@ -11,3 +11,7 @@ func _on_area_entered(area: Area2D) -> void:
 #If the parent is a BULLET it'll destroy itself
 		if get_parent() is Bullet:
 			get_parent().destroySelf()
+
+
+func _on_idle_time_timeout() -> void:
+	pass # Replace with function body.
