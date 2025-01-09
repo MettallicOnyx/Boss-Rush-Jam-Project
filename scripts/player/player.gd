@@ -2,13 +2,13 @@ extends CharacterBody2D
 
 class_name Player
 
-@export var speed = 200
+@export var speed = 100
 @export var accel = 10
 @export var animation_player : AnimatedSprite2D
 @export var health_component: HealthComponent
 @export var weapon_list : Array[Node2D]
-@export var dash_distance: float = 200.0  # Maximum distance for the dash
-@export var dash_speed: float = 500.0  # Speed of the dash
+@export var dash_distance: float = 100.0  # Maximum distance for the dash
+@export var dash_speed: float = 200.0  # Speed of the dash
 @export var dash_stamina_cost: int = 20
 
 var is_dashing: bool = false
@@ -93,6 +93,7 @@ func set_weapon():
 	for weapon in weapon_list:
 		weapon.process_mode = Node.PROCESS_MODE_DISABLED
 		weapon.visible = false
+		print(weapon)
 
 	weapon_list[weapon_index].process_mode = Node.PROCESS_MODE_INHERIT
 	weapon_list[weapon_index].visible = true;
