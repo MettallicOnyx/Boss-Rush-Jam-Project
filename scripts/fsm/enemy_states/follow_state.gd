@@ -12,7 +12,7 @@ func onEnter():
 	if animationPlayer: animationPlayer.play("walk")
 	chase_timer.start()
 
-func onUpdate(delta):
+func onUpdate(_delta):
 	var direction = (player.global_position - enemy.global_position).normalized()
 	if direction.x < 0:
 		animationPlayer.flip_h = false

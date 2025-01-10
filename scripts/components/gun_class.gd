@@ -13,7 +13,6 @@ var current_ammo: int #how many ammo the player has in their inventory
 func shoot_bullet(muzzle, mod = 0):
 	ammo_in_clip -= 1
 	var bullet_instance = BULLET.instantiate()
-	print(mod)
 	get_tree().root.add_child(bullet_instance)
 	bullet_instance.global_position = muzzle.global_position
 	bullet_instance.rotation = rotation

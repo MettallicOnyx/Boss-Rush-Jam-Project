@@ -15,7 +15,7 @@ var is_dashing: bool = false
 var dash_target: Vector2
 var dash_start_position: Vector2
 
-var stamina: int = 100
+var stamina: float = 100.0
 
 var current_dir = "none"
 var weapon_index: int = 0

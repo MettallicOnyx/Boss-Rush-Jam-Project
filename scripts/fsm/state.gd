@@ -12,7 +12,7 @@ func onEnter():
 	pass
 
 #in the actual state, we'll call onUpdate inside of physics process and pass it the delta argument
-func onUpdate(delta):
+func onUpdate(_delta):
 	pass
 
 #this gets called whenever the state is exited

@@ -1,12 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjjn8eh74vu41"]
+[gd_scene load_steps=8 format=3 uid="uid://bjjn8eh74vu41"]
 
 [ext_resource type="Script" path="res://scripts/enemies/enemy.gd" id="1_15c3l"]
 [ext_resource type="Texture2D" uid="uid://cbhsqie4hudnl" path="res://icon.svg" id="2_vjeyp"]
 [ext_resource type="PackedScene" uid="uid://blqh26hjoig70" path="res://scenes/components/hitbox_component.tscn" id="2_w58sr"]
 [ext_resource type="PackedScene" uid="uid://b2tbuhxlvvxqa" path="res://scenes/components/health_component.tscn" id="3_k36y7"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xw1xf"]
+radius = 68.469
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_tjr8p"]
 radius = 70.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c4j1m"]
 
 [node name="Test Dummy" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
@@ -20,6 +25,9 @@ texture = ExtResource("2_vjeyp")
 collision_layer = 3
 collision_mask = 3
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage Collision"]
+shape = SubResource("CircleShape2D_xw1xf")
+
 [node name="hitbox_component" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("2_w58sr")]
 collision_layer = 4
 collision_mask = 2
@@ -30,6 +38,9 @@ shape = SubResource("CircleShape2D_tjr8p")
 
 [node name="health_component" parent="." instance=ExtResource("3_k36y7")]
 MAX_HEALTH = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_c4j1m")
 
 [connection signal="body_entered" from="Damage Collision" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="Damage Collision" to="." method="_on_body_exited"]

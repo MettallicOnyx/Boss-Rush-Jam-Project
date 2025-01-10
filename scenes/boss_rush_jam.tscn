@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://r5hakfqtvq4i"]
+[gd_scene load_steps=14 format=4 uid="uid://r5hakfqtvq4i"]
 
 [ext_resource type="PackedScene" uid="uid://dmneubwiq5xqt" path="res://scenes/player/player.tscn" id="1_o0p3x"]
 [ext_resource type="PackedScene" uid="uid://b4v3g0v1f62js" path="res://scenes/UI/health_bar.tscn" id="1_sh5up"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://c8a50jhlgwtxg" path="res://scenes/UI/stamina_bar.tscn" id="2_eo5pw"]
 [ext_resource type="Texture2D" uid="uid://cayll74qwdeg6" path="res://assets/Tilesets/Tileset1.png" id="2_jxsl0"]
 [ext_resource type="PackedScene" uid="uid://dvi7vjtya3my1" path="res://scenes/UI/settings.tscn" id="3_qxcin"]
-[ext_resource type="Script" path="res://scripts/UI/main_camera.gd" id="4_xtxtq"]
 [ext_resource type="PackedScene" uid="uid://bjjn8eh74vu41" path="res://scenes/enemies/test_dummy.tscn" id="5_b4dyp"]
 [ext_resource type="PackedScene" uid="uid://b30ogcnmvfv77" path="res://scenes/items/ammo_pickup.tscn" id="9_imqat"]
 [ext_resource type="Script" path="res://scripts/components/projectile_spawner.gd" id="9_tqdtp"]
@@ -82,12 +81,11 @@ transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
 offset_top = 37.0
 offset_bottom = 101.0
 
-[node name="Ammo_label" parent="CanvasLayer" node_paths=PackedStringArray("gun") instance=ExtResource("2_4gufw")]
+[node name="Ammo_label" parent="CanvasLayer" instance=ExtResource("2_4gufw")]
 offset_left = 14.0
 offset_top = 93.0
 offset_right = 66.0
 offset_bottom = 116.0
-gun = NodePath("../../Player/Gun")
 
 [node name="Settings" parent="CanvasLayer" instance=ExtResource("3_qxcin")]
 offset_left = 52.0
@@ -104,10 +102,6 @@ tile_set = SubResource("TileSet_yhawu")
 [node name="Player" parent="." instance=ExtResource("1_o0p3x")]
 unique_name_in_owner = true
 position = Vector2(562, 496)
-
-[node name="Main Camera" type="Camera2D" parent="."]
-position = Vector2(576, 324)
-script = ExtResource("4_xtxtq")
 
 [node name="Test Enemy" parent="." node_paths=PackedStringArray("projectile_spawner") instance=ExtResource("5_b4dyp")]
 position = Vector2(355, 352)
