@@ -10,7 +10,7 @@ signal shot_fired
 var cursor_offset = Vector2(12.0, 12.0)
 
 var recoil_strength: float = 100.0
-var modifier = 0
+var modifier = 2
 
 func _ready() -> void:
 	shot_fired.connect(_on_shot_fired)
@@ -32,7 +32,7 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		if ammo_in_clip > 0:
 			shoot_bullet(muzzle, modifier)
-			if (modifier > 0):
+			if modifier > 0:
 				do_recoil(recoil_strength, modifier)
 			shot_fired.emit()
 			modifier = 0

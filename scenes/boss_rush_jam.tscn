@@ -77,6 +77,8 @@ sources/1 = SubResource("TileSetAtlasSource_tgvlf")
 [node name="Boss Rush Jam" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
 
 [node name="Health Bar" parent="CanvasLayer" instance=ExtResource("1_sh5up")]
 
@@ -92,6 +94,10 @@ offset_bottom = 116.0
 gun = NodePath("../../Player/Gun")
 
 [node name="Settings" parent="CanvasLayer" instance=ExtResource("3_qxcin")]
+offset_left = 52.0
+offset_top = -89.0
+offset_right = 452.0
+offset_bottom = 361.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(0, -3.05176e-05)
@@ -102,7 +108,6 @@ tile_set = SubResource("TileSet_yhawu")
 [node name="Player" parent="." instance=ExtResource("1_o0p3x")]
 unique_name_in_owner = true
 position = Vector2(562, 496)
-scale = Vector2(2.42678, 2.40823)
 
 [node name="SpinDetector2" parent="Player" instance=ExtResource("7_h5n6e")]
 

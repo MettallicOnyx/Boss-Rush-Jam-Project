@@ -9,7 +9,7 @@
 radius = 70.0
 
 [node name="Test Dummy" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.25, 0.25)
 collision_layer = 4
 script = ExtResource("1_15c3l")
 

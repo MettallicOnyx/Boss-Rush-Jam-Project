@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctvfo7vqrob2m"]
+
+[ext_resource type="Script" path="res://scripts/UI/ui_variables.gd" id="1_pnu78"]
+[ext_resource type="PackedScene" uid="uid://b4v3g0v1f62js" path="res://scenes/UI/health_bar.tscn" id="1_rbod0"]
+[ext_resource type="PackedScene" uid="uid://c8a50jhlgwtxg" path="res://scenes/UI/stamina_bar.tscn" id="2_1pb2a"]
+[ext_resource type="PackedScene" uid="uid://lim4lwwce5bt" path="res://scenes/UI/ammo_label.tscn" id="3_bsjn6"]
+[ext_resource type="PackedScene" uid="uid://dvi7vjtya3my1" path="res://scenes/UI/settings.tscn" id="4_cw0yk"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
+script = ExtResource("1_pnu78")
+
+[node name="Health Bar" parent="." instance=ExtResource("1_rbod0")]
+
+[node name="StaminaBar" parent="." instance=ExtResource("2_1pb2a")]
+offset_top = 37.0
+offset_bottom = 101.0
+
+[node name="Ammo_label" parent="." instance=ExtResource("3_bsjn6")]
+offset_left = 14.0
+offset_top = 93.0
+offset_right = 66.0
+offset_bottom = 116.0
+
+[node name="Settings" parent="." instance=ExtResource("4_cw0yk")]
+offset_left = 62.0
+offset_top = -93.0
+offset_right = 462.0
+offset_bottom = 357.0
