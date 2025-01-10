@@ -23,7 +23,9 @@ PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_came
 
 window/size/viewport_width=480
 window/size/viewport_height=270
+window/size/mode=2
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="res://assets/UI/kenney_crosshairPack/PNG/White Retina/crosshair060.png"
 
 [editor_plugins]
 
