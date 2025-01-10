@@ -79,7 +79,6 @@ tile_set = SubResource("TileSet_my7rg")
 [node name="ObjTileMapLayer" type="TileMapLayer" parent="." index="2"]
 
 [node name="Decorations" type="Node2D" parent="." index="3"]
-visible = false
 
 [node name="DecorationsLvl1Final2" type="Sprite2D" parent="Decorations" index="0"]
 position = Vector2(-186, -121)

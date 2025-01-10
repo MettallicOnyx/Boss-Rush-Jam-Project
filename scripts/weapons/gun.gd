@@ -7,6 +7,8 @@ signal shot_fired
 @onready var gunshot: AudioStreamPlayer2D = $Gunshot
 @onready var muzzle: Marker2D = $Marker2D
 
+var cursor_offset = Vector2(12.0, 12.0)
+
 var recoil_strength: float = 100.0
 var modifier = 0
 
@@ -17,7 +19,7 @@ func _ready() -> void:
 	
 
 func _process(_delta: float) -> void:
-	look_at(get_global_mouse_position())
+	look_at(get_global_mouse_position() + cursor_offset)
 
 	rotation_degrees = wrap(rotation_degrees, 0, 360)
 	if rotation_degrees > 90 and rotation_degrees < 270:
