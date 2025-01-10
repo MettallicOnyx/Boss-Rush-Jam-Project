@@ -8,10 +8,13 @@ class_name AttackComponent
 func _on_area_entered(area: Area2D) -> void:
 	if area.has_method("get_class_name") && area.get_class_name() == "HitboxComponent":
 		area.damage(attack)
+		print(attack)
 #If the parent is a BULLET it'll destroy itself
 		if get_parent() is Bullet:
 			get_parent().destroySelf()
 
+func add_damage(damage: int) -> void:
+	attack += damage
 
 func _on_idle_time_timeout() -> void:
 	pass # Replace with function body.

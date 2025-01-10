@@ -6,16 +6,17 @@
 
 [node name="Gun" type="Node2D"]
 rotation = -6.28319
-scale = Vector2(0.868694, 0.70789)
+scale = Vector2(1.227, 1)
 script = ExtResource("1_6t3aw")
 clip_size = 12
+extra_damage = 20
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(25, -4)
+position = Vector2(14.6699, -0.99992)
 texture = ExtResource("2_wivy4")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(56.4065, -5.65029)
+position = Vector2(41.5648, 0.000227785)
 
 [node name="Gunshot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_5svgy")

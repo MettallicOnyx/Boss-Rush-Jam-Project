@@ -15,7 +15,7 @@ script = ExtResource("1_dw7te")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(3.8147e-06, 0)
-scale = Vector2(2.87381, 1.04991)
+scale = Vector2(2.74, 1)
 texture = ExtResource("2_0cvnp")
 
 [node name="attack_component" parent="." instance=ExtResource("3_0643m")]

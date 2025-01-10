@@ -7,7 +7,8 @@ signal shot_fired
 @onready var gunshot: AudioStreamPlayer2D = $Gunshot
 @onready var muzzle: Marker2D = $Marker2D
 
-var recoil_strength: float = 300.0
+var recoil_strength: float = 100.0
+var modifier = 0
 
 func _ready() -> void:
 	shot_fired.connect(_on_shot_fired)
@@ -23,17 +24,23 @@ func _process(_delta: float) -> void:
 		scale.y = -1
 	else:
 		scale.y = 1
-
+		
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		if ammo_in_clip > 0:
-			shoot_bullet(muzzle)
-			do_recoil(recoil_strength)
+			shoot_bullet(muzzle, modifier)
+			if (modifier > 0):
+				do_recoil(recoil_strength, modifier)
 			shot_fired.emit()
+			modifier = 0
 			gunshot.play()
 	if Input.is_action_just_pressed("reload"):
 		reload_gun()
 
 func _on_shot_fired() -> void:
 	pass
+
+
+func _on_spin_detector_power_up_weapon() -> void:
+	modifier += 1

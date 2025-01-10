@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://dmneubwiq5xqt"]
+[gd_scene load_steps=72 format=3 uid="uid://dmneubwiq5xqt"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_lloie"]
 [ext_resource type="Texture2D" uid="uid://bl8fnim0qibh2" path="res://assets/Player/player_spritesheet.png" id="3_albyp"]
@@ -7,6 +7,177 @@
 [ext_resource type="PackedScene" uid="uid://bgqvneeqe3raq" path="res://scenes/weapons/gun.tscn" id="5_h1j6a"]
 [ext_resource type="PackedScene" uid="uid://pd2x0370tjpy" path="res://scenes/weapons/melee.tscn" id="6_824oh"]
 [ext_resource type="PackedScene" uid="uid://cpo88w23h0qc5" path="res://scenes/player/spin_detector.tscn" id="7_1ljt3"]
+[ext_resource type="Texture2D" uid="uid://csmgj1rf1x38f" path="res://assets/Player/player_powerup_placeholder.png" id="8_rp1a1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yu5wh"]
+atlas = ExtResource("8_rp1a1")
+region = Rect2(64, 24, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exh2g"]
+atlas = ExtResource("8_rp1a1")
+region = Rect2(48, 24, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sm02o"]
+atlas = ExtResource("8_rp1a1")
+region = Rect2(32, 24, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbv1n"]
+atlas = ExtResource("8_rp1a1")
+region = Rect2(16, 24, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rc54k"]
+atlas = ExtResource("8_rp1a1")
+region = Rect2(0, 24, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf0ye"]
+atlas = ExtResource("8_rp1a1")
+region = Rect2(0, 16, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fpci"]
+atlas = ExtResource("8_rp1a1")
+region = Rect2(112, 8, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhyd1"]
+atlas = ExtResource("8_rp1a1")
+region = Rect2(96, 8, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4w3t"]
+atlas = ExtResource("8_rp1a1")
+region = Rect2(80, 8, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc33h"]
+atlas = ExtResource("8_rp1a1")
+region = Rect2(64, 8, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp8sk"]
+atlas = ExtResource("8_rp1a1")
+region = Rect2(48, 8, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uyc5"]
+atlas = ExtResource("8_rp1a1")
+region = Rect2(16, 8, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5j62"]
+atlas = ExtResource("8_rp1a1")
+region = Rect2(0, 24, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rndi"]
+atlas = ExtResource("8_rp1a1")
+region = Rect2(16, 24, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gw3h3"]
+atlas = ExtResource("8_rp1a1")
+region = Rect2(32, 24, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5d1k"]
+atlas = ExtResource("8_rp1a1")
+region = Rect2(48, 24, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klden"]
+atlas = ExtResource("8_rp1a1")
+region = Rect2(64, 24, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi6k3"]
+atlas = ExtResource("8_rp1a1")
+region = Rect2(80, 24, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp1n6"]
+atlas = ExtResource("8_rp1a1")
+region = Rect2(96, 24, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_godw0"]
+atlas = ExtResource("8_rp1a1")
+region = Rect2(112, 24, 16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn1ps"]
+atlas = ExtResource("8_rp1a1")
+region = Rect2(112, 8, 16, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0m1fq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yu5wh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exh2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sm02o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbv1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rc54k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lf0ye")
+}],
+"loop": false,
+"name": &"power_down_1",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fpci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhyd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4w3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc33h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp8sk")
+}],
+"loop": false,
+"name": &"power_down_2",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uyc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5j62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rndi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gw3h3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5d1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klden")
+}],
+"loop": false,
+"name": &"power_up_1",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi6k3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp1n6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_godw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn1ps")
+}],
+"loop": false,
+"name": &"power_up_2",
+"speed": 10.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q67a0"]
 atlas = ExtResource("3_albyp")
@@ -321,6 +492,14 @@ animation_player = NodePath("AnimatedSprite2D")
 health_component = NodePath("HealthComponent")
 weapon_list = [NodePath("Gun"), NodePath("Melee")]
 
+[node name="SpinDetector" parent="." instance=ExtResource("7_1ljt3")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpinDetector"]
+texture_filter = 1
+position = Vector2(-1, 14)
+sprite_frames = SubResource("SpriteFrames_0m1fq")
+animation = &"power_up_1"
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7x6wh")
 animation = &"walk"
@@ -345,5 +524,7 @@ MAX_HEALTH = 100
 [node name="Gun" parent="." instance=ExtResource("5_h1j6a")]
 
 [node name="Melee" parent="." instance=ExtResource("6_824oh")]
+visible = false
 
-[node name="SpinDetector" parent="." instance=ExtResource("7_1ljt3")]
+[connection signal="power_up_weapon" from="SpinDetector" to="Gun" method="_on_spin_detector_power_up_weapon"]
+[connection signal="shot_fired" from="Gun" to="SpinDetector" method="remove_charge"]
