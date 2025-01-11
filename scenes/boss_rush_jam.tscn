@@ -133,5 +133,6 @@ position = Vector2(248, 154)
 [node name="Mantis" parent="." instance=ExtResource("17_vvk1y")]
 position = Vector2(567, 147)
 
+[connection signal="dashed" from="Player" to="CanvasLayer/StaminaBar" method="_on_player_dashed"]
 [connection signal="timeout" from="Test Enemy/ProjectileSpawner/ShootTimer" to="Test Enemy/ProjectileSpawner" method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="Test Enemy/ProjectileSpawner/SequenceTimer" to="Test Enemy/ProjectileSpawner" method="_on_sequence_timer_timeout"]

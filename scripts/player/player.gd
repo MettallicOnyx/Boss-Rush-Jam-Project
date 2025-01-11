@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name Player
 
+signal dashed
+
 @export var speed = 100
 @export var accel = 10
 @export var animation_player : AnimatedSprite2D
@@ -54,8 +56,11 @@ func _physics_process(delta: float) -> void:
 
 		# Check if dash is complete
 	if global_position.distance_to(dash_target) < 1.0 or global_position.distance_to(dash_start_position) >= dash_distance:
-		is_dashing = false
-	
+		if is_dashing:
+			dashed.emit()
+			is_dashing = false
+		
+		
 	velocity = velocity.move_toward(direction * speed, accel)
 	
 	move_and_slide()
@@ -76,6 +81,7 @@ func _input(_event: InputEvent) -> void:
 		dash_target = global_position + direction * dash_distance
 		stamina -= dash_stamina_cost
 		is_dashing = true
+		print("dash")
 
 func handle_animation(direction, is_flipped, animation_name):
 		current_dir = direction
@@ -93,7 +99,6 @@ func set_weapon():
 	for weapon in weapon_list:
 		weapon.process_mode = Node.PROCESS_MODE_DISABLED
 		weapon.visible = false
-		print(weapon)
 
 	weapon_list[weapon_index].process_mode = Node.PROCESS_MODE_INHERIT
 	weapon_list[weapon_index].visible = true;

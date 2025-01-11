@@ -15,3 +15,7 @@ stretch_margin_bottom = 1
 texture_progress = ExtResource("1_bh8r5")
 tint_progress = Color(27.624, 100, 0, 1)
 script = ExtResource("2_hde5w")
+
+[node name="Recharge Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true

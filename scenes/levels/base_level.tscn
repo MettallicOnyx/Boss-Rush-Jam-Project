@@ -33,3 +33,5 @@ offset_bottom = 361.0
 [node name="Player" parent="." instance=ExtResource("1_x0b7v")]
 unique_name_in_owner = true
 position = Vector2(-60, 76)
+
+[connection signal="dashed" from="Player" to="CanvasLayer/StaminaBar" method="_on_player_dashed"]
